@@ -39,7 +39,7 @@ const LoginScreen = () => {
             marginTop: 15,
             fontWeight: 'bold',
           }}>
-          Login to your Account hello
+          Login to your Account hello hello1
         </Text>
 
         <View style={{padding: scale(20), marginTop: verticalScale(30)}}>
