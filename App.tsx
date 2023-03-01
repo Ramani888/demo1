@@ -1,11 +1,19 @@
+import 'react-native-gesture-handler';
 import { View, Text } from 'react-native';
-import React from 'react';
-import LoginScreen from './App/Login/LoginScreen';
+import React,{useEffect} from 'react';
+import SplashScreen from 'react-native-splash-screen';
+import AppNav from './app/Navigation/AppNav';
 
 const App = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 1000);
+  }, []);
+
   return (
     <View style = {{flex:1}}>
-      <LoginScreen/>
+      <AppNav/>
     </View>
   )
 }
