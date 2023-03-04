@@ -1,0 +1,25 @@
+{
+  "name": "backend-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon src/index.ts --exec ts-node"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-status-codes": "^2.2.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1"
+  }
+}
