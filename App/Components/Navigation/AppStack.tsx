@@ -14,7 +14,7 @@ const Drawer = createDrawerNavigator();
 const AppStack = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="Home"
+      initialRouteName="group"
       drawerContent={props => <AppDrawer {...props} />}
       screenOptions={{
         drawerActiveTintColor: '#F2A1B2',
