@@ -4,8 +4,8 @@ import {styles} from './Style';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 
-const SignupScreen: React.FC<any> = (props) => {
-  // const navigation = useNavigation();
+const SignupScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.mainView}>
       <View style={styles.childView}>
@@ -47,7 +47,7 @@ const SignupScreen: React.FC<any> = (props) => {
 
         <View style={styles.ViewStyle1}>
           <Text style={styles.text}>Already Registered?</Text>
-          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text
               style={[styles.text, {color: '#F2A1B2', marginLeft: scale(5)}]}>
               Login
