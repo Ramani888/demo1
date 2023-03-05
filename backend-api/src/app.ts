@@ -1,6 +1,7 @@
 import express, {Application} from 'express';
 import morgan from 'morgan';
 import IndexRoutes from './routes/index';
+import bodyParser from "body-parser";
 
 
 export class App {
@@ -23,6 +24,8 @@ export class App {
     }
 
     routes(){
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(IndexRoutes);
     }
 
