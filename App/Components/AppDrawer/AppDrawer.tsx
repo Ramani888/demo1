@@ -72,7 +72,7 @@ const AppDrawer: React.FC<any> = (props) => {
                   />
                 </TouchableOpacity>
               </View>
-    
+
               <View
                 style={{
                   borderBottomWidth: scale(0.3),
@@ -80,7 +80,7 @@ const AppDrawer: React.FC<any> = (props) => {
                   marginHorizontal: scale(6),
                 }}>
                 <TouchableOpacity
-                  onPress={() => props.navigation.navigate('Group')}
+                  onPress={() => props.navigation.navigate('Account')}
                   style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                   <View
                     style={{
@@ -98,7 +98,7 @@ const AppDrawer: React.FC<any> = (props) => {
                         fontWeight: '500',
                         marginLeft: scale(10),
                       }}>
-                      Group
+                      Account
                     </Text>
                   </View>
                   <AntDesign

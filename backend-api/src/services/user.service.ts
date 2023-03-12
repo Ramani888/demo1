@@ -40,3 +40,10 @@ export const createUserDetails = async (data: IUser) => {
     const result: any = await pool.query(query);
     return result?.recordset;
 }
+
+export const createLoginDetalis = async (data: any) => {
+    const pool = await connect();
+    const query = 'select * from users where mobile = ' + data.number;
+    const result: any = await pool.query(query);
+    return result[0];
+}

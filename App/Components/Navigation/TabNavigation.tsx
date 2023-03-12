@@ -6,15 +6,28 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {scale, verticalScale} from 'react-native-size-matters';
-import GroupScreen from '../../Screens/Groups/GroupScreen';
 import FriendListScreen from '../../Screens/Friend/FriendListScreen';
-import Analysis from '../../Screens/analysis/AnalysisScreen';
 import AnalysisScreen from '../../Screens/analysis/AnalysisScreen';
 import AccountScreen from '../../Screens/account/AccountScreen';
+import AppContactList from '../AppContactList/AppContactList';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ContactListScreen from '../../Screens/ContactList/ContactListScreen';
+import GroupScreen from '../../Screens/Groups/GroupScreen';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const TabNavigation = () => {
+  const getScreen = () => {
+    return (
+      <Stack.Navigator>
+        <Stack.Screen name="FriendListScreen" component={FriendListScreen} />
+        <Stack.Screen name='ContactList' component={ContactListScreen} />
+      </Stack.Navigator>
+    )
+  }
   return (
     <Tab.Navigator
       screenOptions={{
@@ -69,7 +82,7 @@ const TabNavigation = () => {
         options={{
           tabBarIconStyle: {height: scale(30), width: scale(30)},
           tabBarIcon: ({color, focused}) => (
-            <FontAwesome5 name="user-friends" size={scale(25)} color={color} />
+            <FontAwesome name="user" size={scale(25)} color={color} />
           ),
         }}
         name="FreindList"
@@ -79,15 +92,15 @@ const TabNavigation = () => {
         options={{
           tabBarIconStyle: {height: scale(30), width: scale(30)},
           tabBarIcon: ({color, focused}) => (
-            <MaterialCommunityIcons
-              name={focused ? 'comment-account' : 'comment-account-outline'}
+            <MaterialIcons
+              name={'group'}
               size={scale(25)}
               color={color}
             />
           ),
         }}
-        name="Account"
-        component={AccountScreen}
+        name="Group"
+        component={GroupScreen}
       />
     </Tab.Navigator>
   );
