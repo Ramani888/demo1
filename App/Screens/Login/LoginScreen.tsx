@@ -6,16 +6,34 @@ import {
   Dimensions,
   StatusBar,
   ScrollView,
+  Alert,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 import {styles} from './style';
+import { Formik } from 'formik';
+import * as yup from 'yup'
+import { serverLogin } from '../../services/serverApi';
+import { IsLoggedIn } from '../../utils/helpers/user';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [userNumber, setUserNumber] = useState();
   const [password, setPassword] = useState();
+
+  // const handleSubmit = () => {
+  //   console.log('user number', userNumber);
+  //   console.log('password', password);
+  // }
+
+  const handleServerSubmit = async (data: any, onSubmitProps: any) => {
+    onSubmitProps.setSubmitting(false)
+    onSubmitProps.resetForm()
+    const res = await serverLogin(data);
+    console.log('res', res)
+  }
+
 
   return (
     <ScrollView>
@@ -24,50 +42,82 @@ const LoginScreen = () => {
       <View style={styles.mainViewStyle}>
         <Text style={styles.textStyle}>Login to your Account</Text>
 
-        <View style={styles.textInputViewStyle}>
-          <TextInput
-            placeholder="userName"
-            placeholderTextColor={'white'}
-            value={userNumber}
-            onChangeText={setUserNumber}
-            style={styles.textInputStyle}
-          />
+        <Formik
+        initialValues={{ 
+          number: '',
+          password: '' 
+        }}
+        onSubmit={(values, onSubmitProps) => handleServerSubmit(values, onSubmitProps)}
+        validationSchema={yup.object().shape({
+          number: yup
+            .number()
+            // .min(10)
+            // .max(10)
+            .required(),
+          password: yup
+            .string()
+            .min(4)
+            .max(12, 'Password should not excced 12 chars.')
+            .required(),
+        })}
+       >
+        {({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit }) => (
+          <View style={styles.textInputViewStyle}>
+            <TextInput
+              placeholder="Number"
+              keyboardType='numeric'
+              placeholderTextColor={'white'}
+              value={values.number}
+              onChangeText={handleChange('number')}
+              onBlur={() => setFieldTouched('number')}
+              style={styles.textInputStyle}
+            />
+            {touched.number && errors.number &&
+              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.number}</Text>
+            }
 
-          <TextInput
-            placeholder="Password"
-            placeholderTextColor={'white'}
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
-            style={[
-              styles.textInputStyle,
-              {
-                marginTop: scale(28),
-              },
-            ]}
-          />
+            <TextInput
+              placeholder="Password"
+              placeholderTextColor={'white'}
+              value={values.password}
+              onChangeText={handleChange('password')}
+              onBlur={() => setFieldTouched('password')}
+              secureTextEntry={true}
+              style={[
+                styles.textInputStyle,
+                {
+                  marginTop: scale(28),
+                },
+              ]}
+            />
+            {touched.password && errors.password &&
+              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.password}</Text>
+            }
 
-          <TouchableOpacity onPress={() => {}} style={styles.buttonStyle}>
-            <Text
-              style={{
-                fontSize: scale(15),
-                color: 'white',
-                fontWeight: 'bold',
-              }}>
-              Login
-            </Text>
-          </TouchableOpacity>
-
-          <View style={styles.VIewStyle1}>
-            <Text style={styles.text}>New to the app ?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+            <TouchableOpacity onPress={() => {handleSubmit()}} style={styles.buttonStyle} disabled={!isValid}>
               <Text
-                style={[styles.text, {color: '#F2A1B2', marginLeft: scale(5)}]}>
-                Register
+                style={{
+                  fontSize: scale(15),
+                  color: 'white',
+                  fontWeight: 'bold',
+                }}>
+                Login
               </Text>
             </TouchableOpacity>
+
+            <View style={styles.VIewStyle1}>
+              <Text style={styles.text}>New to the app ?</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+                <Text
+                  style={[styles.text, {color: '#F2A1B2', marginLeft: scale(5)}]}>
+                  Register
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        )}
+       </Formik>
+
       </View>
     </ScrollView>
   );
