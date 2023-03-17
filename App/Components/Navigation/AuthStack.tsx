@@ -14,7 +14,7 @@ const AuthStack = () => {
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="SignUp" component={SignupScreen} />
-      <Stack.Screen name='AppContactList' component={AppContactList} />
+      {/* <Stack.Screen name='AppContactList' component={AppContactList} /> */}
     </Stack.Navigator>
   );
 };

@@ -5,6 +5,7 @@ import {scale, verticalScale} from 'react-native-size-matters';
 import { useNavigation } from '@react-navigation/native';
 
 const AppHeader:React.FC<any> = (props) => {
+  console.log('props', props)
     // const navigation = useNavigation();
     return (
         <View style={{backgroundColor: '#FFFFFF'}}>

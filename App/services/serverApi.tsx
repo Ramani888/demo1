@@ -71,3 +71,9 @@ export const serverGetFriends = async () => {
   const res = await serverRequest(`/friends`, 'GET', null, true);
   return res;
 }
+
+// get all group data
+export const serverGetGroups = async () => {
+  const res = await serverRequest('/groups', 'GET', null, true);
+  return res;
+}
