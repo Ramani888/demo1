@@ -11,4 +11,9 @@ export const styles = StyleSheet.create({
     fontSize: scale(15),
     color: '#000000',
   },
+  AddButton: {
+    position: 'absolute',
+    bottom:10,
+    right:10,
+  },
 });

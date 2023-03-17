@@ -5,9 +5,12 @@ import Contacts from 'react-native-contacts';
 import { scale } from 'react-native-size-matters';
 import AppContactList from '../../Components/AppContactList/AppContactList';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useNavigation} from '@react-navigation/native';
 
 
 const ContactListScreen = () => {
+  const navigation = useNavigation();
   const [contacts, setContacts] = useState<any>([]);
   const [selctedContact, setSelectedContact] = useState<any>([])
   useEffect(() => {
@@ -47,6 +50,15 @@ const ContactListScreen = () => {
   console.log('selected contact', selctedContact)
     return (
         <View style={styles.mainView}>
+          <View style={styles.HeaderContainer}>
+            <TouchableOpacity style={styles.BackIcon} onPress={() => navigation.goBack()}>
+              <Ionicons
+                name={'arrow-back'}
+                size={scale(25)}
+                color={'#ffffff'}
+              />
+            </TouchableOpacity>
+          </View>
           {/* <Text style={styles.text}>ContactListScreen</Text> */}
           <View style={styles.SelectedListContainer}>
             {selctedContact?.map((item: any, index: number) => {

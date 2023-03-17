@@ -12,6 +12,7 @@ import AppContactList from '../AppContactList/AppContactList';
 import ContactListScreen from '../../Screens/ContactList/ContactListScreen';
 import AccountScreen from '../../Screens/account/AccountScreen';
 import CreateGroupScreen from '../../Screens/CreateGroupScreen/CreateGroupScreen';
+import GroupDetailScreen from '../../Screens/GroupDetail/GroupDetailScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,7 +20,7 @@ const AppStack = () => {
   return (
     <>
       <Drawer.Navigator
-        initialRouteName="home"
+        initialRouteName="Home"
         drawerContent={props => <AppDrawer {...props} />}
         screenOptions={{
           drawerActiveTintColor: '#F2A1B2',
@@ -38,14 +39,14 @@ const AppStack = () => {
             header: (props) => <AppHeader {...props}/>,
           }}
         />
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="Group"
           component={GroupScreen}
           options={{
             headerShown: true,
             header: (props) => <AppHeader {...props}/>,
           }}
-        />
+        /> */}
         <Drawer.Screen
           name="Account"
           component={AccountScreen}
@@ -57,18 +58,22 @@ const AppStack = () => {
         <Drawer.Screen
           name="ContactList"
           component={ContactListScreen}
-          options={{
-            headerShown: true,
-            header: (props) => <AppHeader {...props}/>
-          }}
-        />
-        <Drawer.Screen
-          name="CreateGroupScreen"
-          component={CreateGroupScreen}
           // options={{
           //   headerShown: true,
           //   header: (props) => <AppHeader {...props}/>
           // }}
+        />
+        <Drawer.Screen
+          name="CreateGroupScreen"
+          component={CreateGroupScreen}
+        />
+        <Drawer.Screen 
+          name='GroupDetailScreen'
+          component={GroupDetailScreen}
+        />
+        <Drawer.Screen 
+          name='AppContactList'
+          component={AppContactList}
         />
       </Drawer.Navigator>
     </>

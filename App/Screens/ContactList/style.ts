@@ -22,6 +22,15 @@ export const styles = StyleSheet.create({
     bottom:10,
     right:10,
   },
+  HeaderContainer: {
+    height: 70,
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  BackIcon: {
+    marginLeft: 10
+  },
 
 
   contactCon: {
