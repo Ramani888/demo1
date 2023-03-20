@@ -16,22 +16,36 @@ import { Formik } from 'formik';
 import * as yup from 'yup'
 import { serverLogin } from '../../services/serverApi';
 import { IsLoggedIn } from '../../utils/helpers/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import useLogin from '../../Hooks/useLogin';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [userNumber, setUserNumber] = useState();
   const [password, setPassword] = useState();
+  const { handleLogin } = useLogin();
 
   // const handleSubmit = () => {
   //   console.log('user number', userNumber);
   //   console.log('password', password);
   // }
 
-  const handleServerSubmit = async (data: any, onSubmitProps: any) => {
-    onSubmitProps.setSubmitting(false)
-    onSubmitProps.resetForm()
-    const res = await serverLogin(data);
-    console.log('res', res)
+  // const handleServerSubmit = async (data: any, onSubmitProps: any) => {
+  //   onSubmitProps.setSubmitting(false)
+  //   onSubmitProps.resetForm()
+  //   const res = await serverLogin(data);
+  //   if (res?.success) {
+  //     AsyncStorage.setItem('user', JSON.stringify(res?.user));
+  //     navigation.navigate('Home')
+  //   }
+  //   console.log('res', res)
+  // }
+
+  const handleServerLogin = (data: any, onSubmitProps: any) => {
+    const res: any = handleLogin(data, onSubmitProps);
+    if (res?.success)  {
+      navigation.navigate('Home')
+    }
   }
 
 
@@ -47,7 +61,7 @@ const LoginScreen = () => {
           number: '',
           password: '' 
         }}
-        onSubmit={(values, onSubmitProps) => handleServerSubmit(values, onSubmitProps)}
+        onSubmit={(values, onSubmitProps) => handleServerLogin(values, onSubmitProps)}
         validationSchema={yup.object().shape({
           number: yup
             .number()
