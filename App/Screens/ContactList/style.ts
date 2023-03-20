@@ -69,5 +69,26 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     right:0,
     zIndex: 1
+  },
+
+  RightArrowIcon: {
+    position: 'absolute',
+    bottom: 50,
+    right: 20,
+    backgroundColor: 'red',
+    borderRadius: 50,
+    padding: 10
+  },
+  SerachInput: {
+    width: '100%',
+    // backgroundColor: 'red',
+    height: 70,
+    marginLeft: 10,
+    marginRight: 10,
+    border: '1px solid green',
+    borderBottomColor: 'yellow',
+    borderRadius: 7,
+    color: '#ffffff',
+    fontSize: 18
   }
 });

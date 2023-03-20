@@ -13,6 +13,8 @@ import ContactListScreen from '../../Screens/ContactList/ContactListScreen';
 import AccountScreen from '../../Screens/account/AccountScreen';
 import CreateGroupScreen from '../../Screens/CreateGroupScreen/CreateGroupScreen';
 import GroupDetailScreen from '../../Screens/GroupDetail/GroupDetailScreen';
+import FriendFinalScreen from '../../Screens/FriendFinal/FriendFinalScreen';
+import FriendDetailScreen from '../../Screens/FriendDetail/FriendDetailScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -74,6 +76,14 @@ const AppStack = () => {
         <Drawer.Screen 
           name='AppContactList'
           component={AppContactList}
+        />
+        <Drawer.Screen 
+          name='FriendFinalScreen'
+          component={FriendFinalScreen}
+        />
+        <Drawer.Screen 
+          name='FriendDetailScreen'
+          component={FriendDetailScreen}
         />
       </Drawer.Navigator>
     </>

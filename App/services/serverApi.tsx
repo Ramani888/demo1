@@ -72,8 +72,19 @@ export const serverGetFriends = async () => {
   return res;
 }
 
+// create friend
+export const serverCreateFriend = async (data: any) => {
+  const res = await serverRequest('/friends/create', 'POST', data, true);
+  return res;
+}
+
 // get all group data
 export const serverGetGroups = async () => {
   const res = await serverRequest('/groups', 'GET', null, true);
   return res;
+}
+
+// create group
+export const serverCreateGroup = async (data: any) => {
+  const res = await serverRequest('/groups/create', 'POST', data, true);
 }

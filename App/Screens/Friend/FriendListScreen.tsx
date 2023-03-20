@@ -28,7 +28,7 @@ const FriendListScreen = () => {
       {/* <ContactListScreen /> */}
       {friendData?.map((item: any, index: number) => {
         return (
-          <View style={styles.ContactContainer} key={index}>
+          <TouchableOpacity style={styles.ContactContainer} key={index} onPress={() => navigation.navigate('FriendDetailScreen', {data: item})}>
             <View style={styles.ContactListContainer}>
               <View style={styles.CallIcon}>
                 <Entypo
@@ -42,7 +42,7 @@ const FriendListScreen = () => {
                 {/* <Text>+91{item?.number}</Text> */}
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         )
       })}
       <TouchableOpacity style={styles.AddButton} onPress={() => navigation.navigate('ContactList')}>

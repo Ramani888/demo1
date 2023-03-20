@@ -13,9 +13,16 @@ import {
   import {useNavigation} from '@react-navigation/native';
   import {scale, verticalScale} from 'react-native-size-matters';
   import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import useLogin from '../../Hooks/useLogin';
 
 const AppDrawer: React.FC<any> = (props) => {
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
+    const { handleLogout } = useLogin()
+
+    const handleServerLogout = () => {
+      handleLogout()
+      navigation.navigate('Login')
+    }
     return (
         <View style={{flex: 1}}>
           <Text
@@ -122,7 +129,7 @@ const AppDrawer: React.FC<any> = (props) => {
               borderTopWidth: scale(1),
               borderTopColor: '#ccc',
             }}>
-            <TouchableOpacity style={{paddingVertical: verticalScale(5)}}>
+            <TouchableOpacity style={{paddingVertical: verticalScale(5)}} onPress={() => handleServerLogout()}>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Ionicons name="exit-outline" size={22} color="#000000" />
                 <Text
