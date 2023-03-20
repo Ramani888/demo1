@@ -1,8 +1,8 @@
-import 'react-native-gesture-handler';
-import { View, Text } from 'react-native';
-import React,{useEffect} from 'react';
-import SplashScreen from 'react-native-splash-screen';
-import AppNav from './app/Components/Navigation/AppNav';
+import "react-native-gesture-handler";
+import { View, Text } from "react-native";
+import React, { useEffect } from "react";
+import SplashScreen from "react-native-splash-screen";
+import AppNav from "./App/Components/Navigation/AppNav";
 
 const App = () => {
   useEffect(() => {
@@ -12,10 +12,10 @@ const App = () => {
   }, []);
 
   return (
-    <View style = {{flex:1}}>
-      <AppNav/>
+    <View style={{ flex: 1 }}>
+      <AppNav />
     </View>
-  )
-}
+  );
+};
 
-export default App
+export default App;
