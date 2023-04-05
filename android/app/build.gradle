@@ -134,7 +134,7 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
+    ndkVersion '21.1.6528147'
     defaultConfig {
         applicationId "com.split"
         minSdkVersion rootProject.ext.minSdkVersion

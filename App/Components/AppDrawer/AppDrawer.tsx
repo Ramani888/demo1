@@ -135,6 +135,55 @@ const AppDrawer: React.FC<any> = (props) => {
               />
             </TouchableOpacity>
           </View>
+
+          <View
+            style={{
+              borderBottomWidth: scale(0.3),
+              borderBottomColor: "grey",
+              marginHorizontal: scale(6),
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("adjust")}
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <MaterialIcons
+                  name="account-balance-wallet"
+                  size={scale(22)}
+                  color="#000000"
+                />
+                <Text
+                  style={{
+                    fontSize: scale(15),
+                    margin: scale(5),
+                    color: "black",
+                    paddingVertical: verticalScale(2),
+                    fontWeight: "500",
+                    marginLeft: scale(10),
+                  }}
+                >
+                  Adjust
+                </Text>
+              </View>
+              <AntDesign
+                name="right"
+                size={scale(15)}
+                color="#05C0C0"
+                style={{
+                  marginTop: verticalScale(8),
+                  paddingRight: scale(3),
+                  paddingVertical: verticalScale(2),
+                }}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </DrawerContentScrollView>
 
