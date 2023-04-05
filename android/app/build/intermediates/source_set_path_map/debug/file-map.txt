@@ -21,19 +21,19 @@ com.split.app-jetified-savedstate-1.1.0-19 C:\Users\Nikuj\.gradle\caches\transfo
 com.split.app-recyclerview-1.1.0-20 C:\Users\Nikuj\.gradle\caches\transforms-3\cf79e2e10938f670193b7a1a75260249\transformed\recyclerview-1.1.0\res
 com.split.app-fragment-1.3.6-21 C:\Users\Nikuj\.gradle\caches\transforms-3\d7aa1f198091ea1cc50dc1c26600633f\transformed\fragment-1.3.6\res
 com.split.app-material-1.1.0-22 C:\Users\Nikuj\.gradle\caches\transforms-3\ff7f9e1ea9c2e709fffb9e018f2252cf\transformed\material-1.1.0\res
-com.split.app-pngs-23 E:\private project\demo\demo1\android\app\build\generated\res\pngs\debug
-com.split.app-react-24 E:\private project\demo\demo1\android\app\build\generated\res\react\debug
-com.split.app-resValues-25 E:\private project\demo\demo1\android\app\build\generated\res\resValues\debug
-com.split.app-rs-26 E:\private project\demo\demo1\android\app\build\generated\res\rs\debug
-com.split.app-mergeDebugResources-27 E:\private project\demo\demo1\android\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.split.app-mergeDebugResources-28 E:\private project\demo\demo1\android\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.split.app-merged_res-29 E:\private project\demo\demo1\android\app\build\intermediates\merged_res\debug
-com.split.app-debug-30 E:\private project\demo\demo1\android\app\src\debug\res
-com.split.app-main-31 E:\private project\demo\demo1\android\app\src\main\res
-com.split.app-packaged_res-32 E:\private project\demo\demo1\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\debug
-com.split.app-packaged_res-33 E:\private project\demo\demo1\node_modules\react-native-contacts\android\build\intermediates\packaged_res\debug
-com.split.app-packaged_res-34 E:\private project\demo\demo1\node_modules\react-native-gesture-handler\android\build\intermediates\packaged_res\debug
-com.split.app-packaged_res-35 E:\private project\demo\demo1\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\debug
-com.split.app-packaged_res-36 E:\private project\demo\demo1\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
-com.split.app-packaged_res-37 E:\private project\demo\demo1\node_modules\react-native-splash-screen\android\build\intermediates\packaged_res\debug
-com.split.app-packaged_res-38 E:\private project\demo\demo1\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\debug
+com.split.app-pngs-23 E:\private project\Demo\demo1\android\app\build\generated\res\pngs\debug
+com.split.app-react-24 E:\private project\Demo\demo1\android\app\build\generated\res\react\debug
+com.split.app-resValues-25 E:\private project\Demo\demo1\android\app\build\generated\res\resValues\debug
+com.split.app-rs-26 E:\private project\Demo\demo1\android\app\build\generated\res\rs\debug
+com.split.app-mergeDebugResources-27 E:\private project\Demo\demo1\android\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.split.app-mergeDebugResources-28 E:\private project\Demo\demo1\android\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.split.app-merged_res-29 E:\private project\Demo\demo1\android\app\build\intermediates\merged_res\debug
+com.split.app-debug-30 E:\private project\Demo\demo1\android\app\src\debug\res
+com.split.app-main-31 E:\private project\Demo\demo1\android\app\src\main\res
+com.split.app-packaged_res-32 E:\private project\Demo\demo1\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\debug
+com.split.app-packaged_res-33 E:\private project\Demo\demo1\node_modules\react-native-contacts\android\build\intermediates\packaged_res\debug
+com.split.app-packaged_res-34 E:\private project\Demo\demo1\node_modules\react-native-gesture-handler\android\build\intermediates\packaged_res\debug
+com.split.app-packaged_res-35 E:\private project\Demo\demo1\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\debug
+com.split.app-packaged_res-36 E:\private project\Demo\demo1\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
+com.split.app-packaged_res-37 E:\private project\Demo\demo1\node_modules\react-native-splash-screen\android\build\intermediates\packaged_res\debug
+com.split.app-packaged_res-38 E:\private project\Demo\demo1\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\debug
