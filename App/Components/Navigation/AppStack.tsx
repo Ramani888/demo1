@@ -15,6 +15,8 @@ import CreateGroupScreen from '../../Screens/CreateGroupScreen/CreateGroupScreen
 import GroupDetailScreen from '../../Screens/GroupDetail/GroupDetailScreen';
 import FriendFinalScreen from '../../Screens/FriendFinal/FriendFinalScreen';
 import FriendDetailScreen from '../../Screens/FriendDetail/FriendDetailScreen';
+import ExpanseScreen from '../../Screens/Expanse/ExpanseScreen';
+import GroupFinalScreen from '../../Screens/GroupFinal/GroupFinalScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -82,8 +84,16 @@ const AppStack = () => {
           component={FriendFinalScreen}
         />
         <Drawer.Screen 
+          name='GroupFinalScreen'
+          component={GroupFinalScreen}
+        />
+        <Drawer.Screen 
           name='FriendDetailScreen'
           component={FriendDetailScreen}
+        />
+        <Drawer.Screen 
+          name='ExpanseScreen'
+          component={ExpanseScreen}
         />
       </Drawer.Navigator>
     </>

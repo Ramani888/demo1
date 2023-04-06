@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import { AuthorizedRequest } from "../types/user";
 import { Response } from 'express';
-import { createFreindDetails, getFriendsDetails } from "../services/friend.service";
+import { createFreindDetails, deleteFriendData, getFriendsDetails } from "../services/friend.service";
 
 export const createFreind = async (req: AuthorizedRequest, res: Response) => {
     const bodyData = req.body;
@@ -22,5 +22,16 @@ export const getFriends = async (req: AuthorizedRequest, res: Response) => {
     } catch (err) {
         console.log(err)
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({ err });
+    }
+}
+
+export const deleteFriend = async (req: AuthorizedRequest, res: Response) => {
+    const { id } = req.query;
+    try {
+        const data = await deleteFriendData(id);
+        res.status(StatusCodes.OK).send({ success: true })
+    } catch (err) {
+        console.log(err)
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({ err })
     }
 }

@@ -15,3 +15,10 @@ export const getFriendsDetails = async () => {
     const data: any = await pool.query(query);
     return data[0];
 }
+
+export const deleteFriendData = async (id: number) => {
+    const pool = await connect();
+    const query  = 'delete from friends where id = "'+id+'"';
+    const data: any = await pool.query(query);
+    return data?.recordset;
+}

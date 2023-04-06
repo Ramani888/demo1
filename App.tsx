@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import React,{useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import AppNav from './app/Components/Navigation/AppNav';
+import { NativeBaseProvider } from 'native-base';
 
 const App = () => {
   useEffect(() => {
@@ -12,9 +13,11 @@ const App = () => {
   }, []);
 
   return (
-    <View style = {{flex:1}}>
-      <AppNav/>
-    </View>
+    <NativeBaseProvider>
+      <View style = {{flex:1}}>
+        <AppNav/>
+      </View>
+    </NativeBaseProvider>
   )
 }
 
