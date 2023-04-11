@@ -30,9 +30,13 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "12.1.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-native-swipe-list-view": "^3.2.9",
 =======
 >>>>>>> temp-branch
+=======
+    "react-native-swipe-list-view": "^3.2.9",
+>>>>>>> 810f2423 (change login, signup, friend and group screen design and friend delete and group edit and delete functionality is working)
     "react-native-vector-icons": "^9.2.0",
     "react-navigation": "^4.4.4",
     "yup": "^1.0.2"
