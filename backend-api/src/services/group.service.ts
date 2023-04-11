@@ -13,3 +13,24 @@ export const getGroupsData = async () => {
     const result: any = await pool.query(query);
     return result[0];
 }
+
+export const getGroupAndGroupDetailsData = async (groupId?: number) => {
+    const pool = await connect();
+    const query = 'select * from `GroupDetails` where `groupId` = "'+groupId+'"';
+    const result: any = await pool.query(query);
+    return result[0];
+}
+
+export const insertGroupAndGroupDetailsData = async (groupId: number, bodyData: any) => {
+    const pool = await connect();
+    const query = 'insert into `GroupDetails` (`groupId`, `name`, `number`) values ("'+groupId+'", "'+bodyData?.name+'", "'+bodyData?.number+'")';
+    const result: any = await pool.query(query);
+    return result?.recordset;
+}
+
+export const deleteGroupAndGroupDetailData = async (id: number) => {
+    const pool = await connect();
+    const query = 'delete from groups where id = "'+id+'";delete from GroupDetails where groupId = "'+id+'"';
+    const result: any = await pool.query(query);
+    return result?.recordset;
+}

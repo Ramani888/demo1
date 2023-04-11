@@ -44,5 +44,34 @@ export const styles = StyleSheet.create({
         marginLeft: 60,
         fontSize: 18,
         fontWeight: '600'
+    },
+    BodyContainer: {
+        height: 'auto',
+        width: 'auto'
+    },
+    AddGroupContainer: {
+        width: 'auto',
+        height: 'auto',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 30,
+        marginBottom: 20,
+    },
+    AddGroupIcon: {
+        width: 50,
+        height: 50,
+        borderRadius: 30,
+        backgroundColor: '#c4c4c4',
+        marginRight: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    AddGroupTitle: {
+        fontSize: 18,
+        color: '#FFFFFF',
+        marginLeft: 10
     }
 })

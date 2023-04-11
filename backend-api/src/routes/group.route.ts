@@ -1,9 +1,12 @@
 import {Router} from 'express'
-import { createGroup, getGroups } from '../controllers/group.controller';
+import { createGroup, deleteGroupAndGroupDetail, getGroupAndGroupDetails, getGroups, insertGroupAndGroupDetails } from '../controllers/group.controller';
 
 const router = Router();
 
 router.post('/create', createGroup)
 router.get('/', getGroups)
+router.get('/groupDetails', getGroupAndGroupDetails)
+router.post('/groupDetails', insertGroupAndGroupDetails)
+router.delete('/', deleteGroupAndGroupDetail)
 
 export default router;

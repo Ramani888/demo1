@@ -84,7 +84,20 @@ export const serverGetGroups = async () => {
   return res;
 }
 
+// get all group with details
+export const serverGetGroupsWithDetails = async (groupId?: number) => {
+  const res = await serverRequest(`/groups/groupDetails?groupId=${groupId}`, 'GET', null, true);
+  return res;
+}
+
 // create group
 export const serverCreateGroup = async (data: any) => {
   const res = await serverRequest('/groups/create', 'POST', data, true);
+  return res
+}
+
+// create group details data
+export const serverCreateGroupDetails = async (groupId: number, data: any) => {
+  const res = await serverRequest(`/groups/groupDetails?groupId=${groupId}`, 'POST', data, true);
+  return res
 }
