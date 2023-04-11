@@ -17,6 +17,7 @@ import FriendFinalScreen from '../../Screens/FriendFinal/FriendFinalScreen';
 import FriendDetailScreen from '../../Screens/FriendDetail/FriendDetailScreen';
 import ExpanseScreen from '../../Screens/Expanse/ExpanseScreen';
 import GroupFinalScreen from '../../Screens/GroupFinal/GroupFinalScreen';
+import { themes } from '../../styles/theme';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,8 +28,8 @@ const AppStack = () => {
         initialRouteName="Home"
         drawerContent={props => <AppDrawer {...props} />}
         screenOptions={{
-          drawerActiveTintColor: '#F2A1B2',
-          drawerInactiveTintColor: '#333',
+          drawerActiveTintColor: themes.default.colors.white,
+          drawerInactiveTintColor: themes.colors.color1,
           drawerStyle: {width: scale(270)},
           drawerLabelStyle: {
             fontSize: scale(13),

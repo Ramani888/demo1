@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { scale } from 'react-native-size-matters'
 import { styles } from './style'
@@ -6,9 +6,11 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {useNavigation} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { serverCreateGroup } from '../../services/serverApi';
+import { serverCreateGroup, serverUpdateGroup } from '../../services/serverApi';
 
-const CreateGroupScreen = () => {
+const CreateGroupScreen: React.FC<any> = (props) => {
+  const editData = props?.route?.params?.data;
+  console.log('editData', editData)
   const navigation = useNavigation();
   const groupType = [
     {
@@ -24,13 +26,18 @@ const CreateGroupScreen = () => {
       icon: ''
     }
   ]
-  const [selectedType, setSelectedType] = useState<any>('');
-  const [groupName, setGroupName] = useState<string>('');
-  const handleSubmit = () => {
+  const [selectedType, setSelectedType] = useState<any>(editData ? editData.groupType : '');
+  const [groupName, setGroupName] = useState<string>(editData ? editData.name : '');
+  const handleSubmit = async () => {
     try {
       if (groupName && selectedType) {
-        const res = serverCreateGroup({name: groupName, groupType: selectedType});
-        navigation.goBack();
+        if (editData) {
+          await serverUpdateGroup(editData?.id, {name: groupName, groupType: selectedType});
+          navigation.goBack();
+        } else {
+          await serverCreateGroup({name: groupName, groupType: selectedType});
+          navigation.goBack();
+        }
       } else {
         Alert.alert('Alert', 'Plese type group name and select group type.', [
           {
@@ -45,6 +52,11 @@ const CreateGroupScreen = () => {
       console.log(err);
     }
   }
+
+  useEffect(() => {
+    setGroupName(editData ? editData?.name : '')
+    setSelectedType(editData ? editData?.groupType : '')
+  }, [props])
   return (
     <View style={styles.mainView}>
       <View style={styles.HeaderContainer}>

@@ -1,41 +1,45 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import { color } from 'react-native-reanimated';
 import {scale, verticalScale} from 'react-native-size-matters';
+import { themes } from '../../styles/theme'
 
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   mainViewStyle: {
-    backgroundColor: '#282828',
+    backgroundColor: '#ffffff',
     height: height,
     flex: scale(1),
-    backgroundColor: '#2C3539',
     justifyContent: 'center',
   },
   textStyle: {
     fontSize: 20,
-    color: 'white',
-    textAlign: 'center',
+    color: themes.colors.color1,
+    textAlign: 'left',
     marginTop: 15,
     fontWeight: 'bold',
+    paddingLeft: scale(20),
   },
   textInputViewStyle: {
-    padding: scale(20),
-    marginTop: verticalScale(30),
+    paddingLeft: scale(20),
+    paddingRight: scale(20),
+    paddingTop: scale(5),
   },
   textInputStyle: {
-    borderWidth: scale(1),
-    borderRadius: scale(5),
+    borderRadius: scale(themes.borderRadius.md),
     padding: scale(9),
-    borderColor: 'white',
-    color: 'white',
-    backgroundColor: 'rgba(255,255,255,0.3)',
+    color: themes.colors.color1,
+    backgroundColor: themes.default.colors.gray,
+    border: 'none',
+    placeholderTextColor: themes.colors.color1,
+    marginTop: scale(10)
   },
   buttonStyle: {
-    backgroundColor: '#87CEEB',
-    marginTop: scale(40),
+    backgroundColor: themes.colors.color1,
+    marginTop: scale(20),
     padding: scale(10),
-    borderRadius: scale(5),
+    borderRadius: scale(themes.borderRadius.md),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -46,7 +50,13 @@ export const styles = StyleSheet.create({
     marginBottom: scale(10),
   },
   text: {
-    color: '#FFFFFF',
+    color: themes.colors.color6,
     fontSize: scale(15),
   },
+  ErrorText: {
+    color: 'red',
+    fontSize: 14,
+    marginLeft: scale(5),
+    fontStyle: 'italic',
+  }
 });

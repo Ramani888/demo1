@@ -1,11 +1,12 @@
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {styles} from './Style';
-import {scale, verticalScale} from 'react-native-size-matters';
+import {scale} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 import { Formik } from 'formik';
 import * as yup from 'yup'
 import { serverSignup } from '../../services/serverApi';
+import { themes } from '../../styles/theme';
 
 const SignupScreen = () => {
   const navigation = useNavigation();
@@ -55,9 +56,6 @@ const SignupScreen = () => {
         {({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit }) => (      
           <View style={styles.childView}>
             <Text style={styles.textStyle}>Sign Up</Text>
-            {touched.first_name && errors.first_name &&
-              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.first_name}</Text>
-            }
             <TextInput
               placeholder="First Name"
               style={styles.textInput}
@@ -66,10 +64,10 @@ const SignupScreen = () => {
               onChangeText={handleChange('first_name')}
               onBlur={() => setFieldTouched('first_name')}
             />
-
-            {touched.last_name && errors.last_name &&
-              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.last_name}</Text>
+            {touched.first_name && errors.first_name &&
+              <Text style={styles.ErrorText}>{errors.first_name}</Text>
             }
+
             <TextInput
               placeholder="Last Name"
               style={styles.textInput}
@@ -78,10 +76,10 @@ const SignupScreen = () => {
               onChangeText={handleChange('last_name')}
               onBlur={() => setFieldTouched('last_name')}
             />
-
-            {touched.email && errors.email &&
-              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.email}</Text>
+            {touched.last_name && errors.last_name &&
+              <Text style={styles.ErrorText}>{errors.last_name}</Text>
             }
+
             <TextInput
               placeholder="Email Id"
               style={styles.textInput}
@@ -90,10 +88,10 @@ const SignupScreen = () => {
               onChangeText={handleChange('email')}
               onBlur={() => setFieldTouched('email')}
             />
-
-            {touched.mobile && errors.mobile &&
-              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.mobile}</Text>
+            {touched.email && errors.email &&
+              <Text style={styles.ErrorText}>{errors.email}</Text>
             }
+
             <TextInput
               placeholder="Mobile No."
               style={styles.textInput}
@@ -103,10 +101,10 @@ const SignupScreen = () => {
               onChangeText={handleChange('mobile')}
               onBlur={() => setFieldTouched('mobile')}
             />
-
-            {touched.password && errors.password &&
-              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.password}</Text>
+            {touched.mobile && errors.mobile &&
+              <Text style={styles.ErrorText}>{errors.mobile}</Text>
             }
+
             <TextInput
               placeholder="Password"
               style={styles.textInput}
@@ -116,6 +114,9 @@ const SignupScreen = () => {
               onChangeText={handleChange('password')}
               onBlur={() => setFieldTouched('password')}
             />
+            {touched.password && errors.password &&
+              <Text style={styles.ErrorText}>{errors.password}</Text>
+            }
 
             <TouchableOpacity style={styles.buttonStyle} onPress={() => handleSubmit()}>
               <Text style={styles.buttonTextStyle}>SIgn Up</Text>
@@ -125,7 +126,7 @@ const SignupScreen = () => {
               <Text style={styles.text}>Already Registered?</Text>
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Text
-                  style={[styles.text, {color: '#F2A1B2', marginLeft: scale(5)}]}>
+                  style={[styles.text, {color: themes.colors.color1, marginLeft: scale(5), fontWeight: 'bold'}]}>
                   Login
                 </Text>
               </TouchableOpacity>

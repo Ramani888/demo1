@@ -30,7 +30,16 @@ export const insertGroupAndGroupDetailsData = async (groupId: number, bodyData: 
 
 export const deleteGroupAndGroupDetailData = async (id: number) => {
     const pool = await connect();
-    const query = 'delete from groups where id = "'+id+'";delete from GroupDetails where groupId = "'+id+'"';
+    const deleteGroupQuery = 'delete from `groups` where `id` = "'+id+'"';
+    const deleteGroupDetailQuery = 'delete from `GroupDetails` where `groupId` = "'+id+'"';
+    const result: any = await pool.query(deleteGroupQuery);
+    const data: any = await pool.query(deleteGroupDetailQuery);
+    return result?.recordset;
+}
+
+export const updateGroupData = async (id: number, bodyData: any) => {
+    const pool = await connect();
+    const query = 'update `groups` set `name` = "'+bodyData?.name+'", `groupType` = "'+bodyData?.groupType+'" where `id` = "'+id+'"';
     const result: any = await pool.query(query);
     return result?.recordset;
 }

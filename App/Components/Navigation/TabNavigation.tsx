@@ -15,6 +15,7 @@ import ContactListScreen from '../../Screens/ContactList/ContactListScreen';
 import GroupScreen from '../../Screens/Groups/GroupScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { themes } from '../../styles/theme';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -32,7 +33,7 @@ const TabNavigation = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#05C0C0',
+        tabBarActiveTintColor: themes.colors.color1,
         tabBarLabelStyle: {
           fontSize: scale(12),
           marginBottom: verticalScale(5),
@@ -41,7 +42,7 @@ const TabNavigation = () => {
         //   fontSize: scale(20),
         // },
         tabBarStyle: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: themes.default.colors.white,
           height: scale(60),
           width: scale(350),
           paddingVertical: verticalScale(5),

@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {scale, verticalScale} from 'react-native-size-matters';
+import { themes } from '../../styles/theme';
 
 export const styles = StyleSheet.create({
   mainView: {
     flex: scale(1),
-    backgroundColor: '#2C3539',
+    backgroundColor: themes.default.colors.white,
     justifyContent: 'center',
     paddingTop: verticalScale(100),
   },
@@ -13,25 +14,22 @@ export const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: scale(20),
-    color: 'white',
-    marginBottom: verticalScale(30),
+    color: themes.colors.color1,
     marginTop: 15,
     fontWeight: 'bold',
   },
   textInput: {
-    borderWidth: scale(1),
-    borderRadius: scale(5),
+    borderRadius: scale(themes.borderRadius.md),
     padding: scale(9),
-    borderColor: 'white',
-    marginBottom: verticalScale(20),
-    color: 'white',
-    backgroundColor: 'rgba(255,255,255,0.3)',
+    marginTop: verticalScale(10),
+    color: themes.colors.color1,
+    backgroundColor: themes.default.colors.gray,
   },
   buttonStyle: {
-    backgroundColor: '#87CEEB',
+    backgroundColor: themes.colors.color1,
     marginTop: scale(15),
     padding: scale(10),
-    borderRadius: scale(5),
+    borderRadius: scale(themes.borderRadius.md),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -48,7 +46,13 @@ export const styles = StyleSheet.create({
     marginBottom: verticalScale(70),
   },
   text: {
-    color: '#FFFFFF',
+    color: themes.colors.color6,
     fontSize: scale(15),
   },
+  ErrorText: {
+    color: 'red',
+    fontSize: 14,
+    marginLeft: scale(5),
+    fontStyle: 'italic',
+  }
 });

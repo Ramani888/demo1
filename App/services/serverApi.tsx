@@ -72,6 +72,11 @@ export const serverGetFriends = async () => {
   return res;
 }
 
+//delete Friend
+export const serverDeleteFriend = async (id: number) => {
+  const res = await serverRequest(`/friends?id=${id}`, 'DELETE', null, true);
+}
+
 // create friend
 export const serverCreateFriend = async (data: any) => {
   const res = await serverRequest('/friends/create', 'POST', data, true);
@@ -93,6 +98,18 @@ export const serverGetGroupsWithDetails = async (groupId?: number) => {
 // create group
 export const serverCreateGroup = async (data: any) => {
   const res = await serverRequest('/groups/create', 'POST', data, true);
+  return res
+}
+
+//update Group
+export const serverUpdateGroup = async (id: number, data: any) => {
+  const res = await serverRequest(`/groups?id=${id}`, 'PUT', data, true);
+  return res
+}
+
+//delete Group
+export const serverDeleteGroup = async (id: number) => {
+  const res = await serverRequest(`/groups?id=${id}`, 'DELETE', null, true);
   return res
 }
 

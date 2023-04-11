@@ -14,6 +14,7 @@ import {
   import {scale, verticalScale} from 'react-native-size-matters';
   import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import useLogin from '../../Hooks/useLogin';
+import { themes } from '../../styles/theme';
 
 const AppDrawer: React.FC<any> = (props) => {
     const navigation = useNavigation();
@@ -24,26 +25,29 @@ const AppDrawer: React.FC<any> = (props) => {
       navigation.navigate('Login')
     }
     return (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, backgroundColor: themes.colors.color1}}>
           <Text
             style={{
-              fontSize: scale(15),
+              fontSize: scale(16),
               paddingLeft: scale(10),
               paddingTop: verticalScale(10),
-              color: '#05C0C0',
+              marginTop: verticalScale(10),
+              color: themes.default.colors.white,
               textTransform: 'uppercase',
+              fontWeight: 'bold'
             }}>
             Welcom
           </Text>
           <DrawerContentScrollView
             {...props} 
             contentContainerStyle={{backgroundColor: ''}}>
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, marginTop: 15}}>
               <View
                 style={{
                   borderBottomWidth: scale(0.3),
-                  borderBottomColor: 'grey',
+                  borderBottomColor: '#ccc',
                   marginHorizontal: scale(6),
+                  padding: scale(5)
                 }}>
                 <TouchableOpacity
                   onPress={() => props.navigation.navigate('Home')}
@@ -54,12 +58,12 @@ const AppDrawer: React.FC<any> = (props) => {
                       justifyContent: 'center',
                       alignItems: 'center',
                     }}>
-                    <FontAwesome name="home" size={scale(22)} color="#000000" />
+                    <FontAwesome name="home" size={scale(22)} color={themes.default.colors.white} />
                     <Text
                       style={{
                         fontSize: scale(15),
                         margin: scale(5),
-                        color: 'black',
+                        color: themes.default.colors.white,
                         paddingVertical: verticalScale(2),
                         fontWeight: '500',
                         marginLeft: scale(10),
@@ -70,7 +74,7 @@ const AppDrawer: React.FC<any> = (props) => {
                   <AntDesign
                     name="right"
                     size={scale(15)}
-                    color="#05C0C0"
+                    color={themes.default.colors.white}
                     style={{
                       marginTop: verticalScale(8),
                       paddingRight: scale(3),
@@ -83,8 +87,9 @@ const AppDrawer: React.FC<any> = (props) => {
               <View
                 style={{
                   borderBottomWidth: scale(0.3),
-                  borderBottomColor: 'grey',
+                  borderBottomColor: '#ccc',
                   marginHorizontal: scale(6),
+                  padding: scale(5)
                 }}>
                 <TouchableOpacity
                   onPress={() => props.navigation.navigate('Account')}
@@ -95,12 +100,12 @@ const AppDrawer: React.FC<any> = (props) => {
                       justifyContent: 'center',
                       alignItems: 'center',
                     }}>
-                    <FontAwesome name="home" size={scale(22)} color="#000000" />
+                    <FontAwesome name="home" size={scale(22)} color={themes.default.colors.white} />
                     <Text
                       style={{
                         fontSize: scale(15),
                         margin: scale(5),
-                        color: 'black',
+                        color: themes.default.colors.white,
                         paddingVertical: verticalScale(2),
                         fontWeight: '500',
                         marginLeft: scale(10),
@@ -111,7 +116,7 @@ const AppDrawer: React.FC<any> = (props) => {
                   <AntDesign
                     name="right"
                     size={scale(15)}
-                    color="#05C0C0"
+                    color={themes.default.colors.white}
                     style={{
                       marginTop: verticalScale(8),
                       paddingRight: scale(3),
@@ -131,12 +136,12 @@ const AppDrawer: React.FC<any> = (props) => {
             }}>
             <TouchableOpacity style={{paddingVertical: verticalScale(5)}} onPress={() => handleServerLogout()}>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Ionicons name="exit-outline" size={22} color="#000000" />
+                <Ionicons name="exit-outline" size={22} color={themes.default.colors.white} />
                 <Text
                   style={{
                     fontSize: scale(13),
                     marginLeft: scale(5),
-                    color: '#000000',
+                    color: themes.default.colors.white,
                     fontWeight: '700',
                   }}>
                   log Out
